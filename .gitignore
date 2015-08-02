@@ -1,0 +1,26 @@
+# Ignore all logfiles and tempfiles.
+/log
+/tmp
+
+*.rbc
+capybara-*.html
+.rspec
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+
+# Make a copy from the templates and use it localy
+#config/secrets.yml
+#config/database.yml
+
+# Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# If using bower-rails ignore default bower_components path bower.json files
+/vendor
+/lib/assets/bower_components
+*.bowerrc
