@@ -1,11 +1,10 @@
 class SessionsController < Devise::SessionsController
   protect_from_forgery
   respond_to :json
-  
+
   def create
     self.resource = warden.authenticate!(auth_options)
     sign_in(resource_name, resource)
-    resource.reset_authentication_token!  
     render json: {email: current_user.email, auth_token: resource.authentication_token}
   end
 
