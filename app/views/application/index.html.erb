@@ -1,5 +1,46 @@
 <div class="ng-cloak">
-<!-- navbar goes here with links to different states -->
-  <a ui-sref='homeState'>Home Page</a>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="../" class="navbar-brand">DBargain</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Deals<span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="themes">
+              <li><a href="#/popular">Popular</a></li>
+              <li class="divider"></li>
+              <li><a href="#/new">New</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#/help">Help</a>
+          </li>
+          <li>
+            <a href="#/blog">Blog</a>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Forum<span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="download">
+              <li><a href="#">Deals</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Others</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/sign_in">Login</a></li>
+          <li><a href="/sign_up">Signup</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <div ui-view></div>
 </div>

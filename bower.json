@@ -6,7 +6,8 @@
       "angular-ui-router" : "latest",
       "restangular"       : "latest",
       "underscore"        : "latest",
-      "angular-cookies"   : "latest"
+      "angular-cookies"   : "latest",
+      "satellizer"        : "latest"
     }
   },
   "vendor": {

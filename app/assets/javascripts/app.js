@@ -2,7 +2,8 @@ app = angular.module('app', [
   'ui.router',   //angular-ui-router
   'templates',   //angular-rails-templates
   'restangular', //restangular
-  'ngCookies'    //angular-cookies
+  'ngCookies',    //angular-cookies
+  'satellizer'
   ])
 
 $(document).ready(function(){
@@ -12,12 +13,10 @@ $(document).ready(function(){
 
 app.value('urlToGoToAfterLogin', {url: '/'});
 
-app.config(['$stateProvider','$urlRouterProvider',
-            '$locationProvider', '$httpProvider',
-            'RestangularProvider',
-  function($stateProvider, $urlRouterProvider,
-           $locationProvider, $httpProvider,
-           RestangularProvider){
+app.config(['$stateProvider','$urlRouterProvider', '$httpProvider',
+            'RestangularProvider', '$authProvider',
+  function($stateProvider, $urlRouterProvider, $httpProvider,
+           RestangularProvider, $authProvider){
 
     //unmatched routes redirect to root
     $urlRouterProvider.otherwise("/");
@@ -26,13 +25,8 @@ app.config(['$stateProvider','$urlRouterProvider',
     $stateProvider
       .state('homeState',{
         url: '/',
-        templateUrl: 'hello.html',
-		controller: 'AppController'
-      })
-      .state('locationState',{
-        url: '/locations',
-        templateUrl: 'location.html',
-        controller : 'LocController'
+        templateUrl: 'homepage.html',
+		    controller: 'AppController'
       })
       //auth
       .state('loginState',{
@@ -46,11 +40,14 @@ app.config(['$stateProvider','$urlRouterProvider',
         controller : 'SignUpController'
       })
 
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
+    $authProvider.facebook({
+      clientId: '100703896938969',
+      url: '/users/auth/facebook'
     });
 
+    $authProvider.google({
+      clientId: '659045875173-ifd33ar3ihjpvt58qq8n7fb79g764iu4.apps.googleusercontent.com',
+    });
     //restangular settings
     RestangularProvider.setBaseUrl('/v1');
   }]);

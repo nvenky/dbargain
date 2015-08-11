@@ -1,16 +1,20 @@
 angular.module('app').controller("LoginController",
-  ['$location', '$scope', 'AuthService', 'urlToGoToAfterLogin',
-  function ($location, $scope, AuthService, urlToGoToAfterLogin) {
+  ['$location', '$scope', '$auth', 'AuthService', 'urlToGoToAfterLogin',
+  function ($location, $scope, $auth, AuthService, urlToGoToAfterLogin) {
     if(AuthService.isLoggedIn()){
       return $location.path('/');
     }
-    
+
+    $scope.authenticate = function(provider){
+      $auth.authenticate(provider);
+    };
+
     $scope.login = function () {
       var credentials = {
         user: {
           email: $scope.email,
           password: $scope.password,
-          rememberme: $scope.rememberme 
+          rememberme: $scope.rememberme
         }
       };
 
@@ -26,4 +30,3 @@ angular.module('app').controller("LoginController",
       );
     }
 }]);
-
