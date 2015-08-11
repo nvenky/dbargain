@@ -2,26 +2,24 @@
   <h2>Sign up</h2>
 </div>
 
-<form id="signup-form" class='bs-component' ng-submit="signUp()">
+<form name="signupForm" class='bs-component' ng-submit="signUp(signupForm.$valid)" novalidate>
   <div class='form-group'>
-    <input name="email" class='form-control' ng-model="email" placeholder="Email" ua-is-email><br>
+    <input name="email" class='form-control' ng-model="email" placeholder="Email" ua-is-email required><br>
+    <span class="help-block" ng-show="signupForm.email.$invalid">Email is required.</span>
   </div>
   <div class='form-group'>
-    <input name="password" class='form-control' ng-model="password" placeholder="Password" type="password"><br>
+    <input name="password" class='form-control' ng-model="password" placeholder="Password" type="password" required><br>
+    <span class="help-block" ng-show="signupForm.password.$invalid">Password is required</span>
   </div>
   <div class='form-group'>
-    <input name="password_confirmation" class='form-control' ng-model="password_confirmation" placeholder="Repeat Password" type="password"><br>
+    <input name="password_confirmation" class='form-control' ng-model="password_confirmation" placeholder="Repeat Password" type="password"  required><br>
+    <span class="help-block" ng-show="signupForm.password_confirmation.$invalid">Repeat Password is required</span>
   </div>
   <p><button type="submit" class='btn btn-primary'>Create account</button></p>
-  <!-- <p ng-show="error">{{ error.message }}</p> -->
-  <button ng-click="authenticate('facebook')">Sign in with Facebook</button>
-  <button ng-click="authenticate('google')">Sign in with Google</button>
-  <button ng-click="authenticate('twitter')">Sign in with Twitter</button>
-  <div class="row" ng-repeat="error in errors">
-    <div class="alert alert-danger">
-      {{error}}
-    </div>
-  </div>
+  <p ng-show="error">{{ error.message }}</p>
+  <p><a class='btn btn-default btn-sm' ng-click="authenticate('facebook')"><i class='fa fa-facebook'></i> Sign in with Facebook</a></p>
+  <p><a class='btn btn-default btn-sm' ng-click="authenticate('google')"><i class='fa fa-google'></i> Sign in with Google</a></p>
+  <p><a class='btn btn-default btn-sm' ng-click="authenticate('twitter')"><i class='fa fa-twitter'></i> Sign in with Twitter</a></p>
 </form>
 
 <!-- <p ng-show="verificationEmailSent">An email has been sent to your inbox. Click on the link to verify your account.</p> -->

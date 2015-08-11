@@ -10,6 +10,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem "font-awesome-rails"
 gem 'jbuilder'
 gem 'versionist', '~> 1.3.0'
 
