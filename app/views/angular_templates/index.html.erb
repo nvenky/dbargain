@@ -37,6 +37,8 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+            <li><a class='btn btn-success' ng-hide="user.isLoggedIn" ui-sref='loginState'>New Post</a></li>
+            <li><a class='btn btn-success' ng-show="user.isLoggedIn" ui-sref='postState'>New Post</a></li>
             <li><a ng-hide="user.isLoggedIn" ui-sref='loginState'>Login</a></li>
             <li><a ng-hide="user.isLoggedIn" ui-sref='signUpState'>Sign Up</a></li>
             <li><a ng-show="user.isLoggedIn" href='#' ng-click="logout()">Logout</a></li>

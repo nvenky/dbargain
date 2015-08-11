@@ -39,6 +39,11 @@ app.config(['$stateProvider','$urlRouterProvider', '$httpProvider',
         templateUrl: 'registrations/new.html',
         controller : 'SignUpController'
       })
+      .state('postState',{
+        url: '/posts',
+        templateUrl: 'posts/new.html',
+        controller : 'PostController'
+      })
 
     $authProvider.facebook({
       clientId: '100703896938969',
